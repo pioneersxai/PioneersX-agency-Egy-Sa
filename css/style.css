@@ -1,10 +1,8 @@
 /* ===================================
-   PIONEERSX - MAIN STYLESHEET
+   ALEX CAFE - MAIN STYLESHEET
+   Color system: white ↔ black contra zones
    ================================== */
 
-/* ===================================
-   CSS VARIABLES & ROOT SETTINGS
-   ================================== */
 * {
     margin: 0;
     padding: 0;
@@ -12,20 +10,29 @@
 }
 
 :root {
-    /* Color Palette */
-    --primary-red: #ff1e1e;
-    --secondary-blue: #2563eb;
-    --dark-bg: #000;
-    --darker-bg: #0a0a0a;
-    --text-white: #fff;
-    --text-gray: #b0b0b0;
-    --card-bg: #1a1a1a;
-    --border-color: #333;
-    --success-green: #10b981;
-    
+    /* Contra Color System */
+    --primary-red: #111111;        /* was red, now black — accent color */
+    --secondary-blue: #111111;     /* was blue, now black */
+    --dark-bg: #111111;            /* dark zones */
+    --darker-bg: #0a0a0a;          /* darker dark zones */
+    --text-white: #ffffff;
+    --text-gray: #999999;
+    --card-bg: #1c1c1c;
+    --border-color: #2a2a2a;
+    --success-green: #25d366;
+
+    /* New light zone vars */
+    --bg-white: #ffffff;
+    --bg-light: #f7f7f7;
+    --text-dark: #111111;
+    --text-mid: #444444;
+    --text-muted: #888888;
+    --card-light: #ffffff;
+    --border-light: #e5e5e5;
+
     /* Typography */
     --font-main: 'Cairo', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    
+
     /* Spacing */
     --section-padding: 100px 0;
     --container-max-width: 1200px;
@@ -36,8 +43,8 @@
    ================================== */
 body {
     font-family: var(--font-main);
-    background-color: var(--dark-bg);
-    color: var(--text-white);
+    background-color: var(--bg-white);
+    color: var(--text-dark);
     overflow-x: hidden;
     scroll-behavior: smooth;
     cursor: none;
@@ -68,9 +75,9 @@ body {
     left: -50%;
     width: 200%;
     height: 200%;
-    background: linear-gradient(45deg, 
-        transparent 30%, 
-        rgba(255,255,255,0.4) 50%, 
+    background: linear-gradient(45deg,
+        transparent 30%,
+        rgba(255,255,255,0.4) 50%,
         transparent 70%);
     animation: glitter 1.5s linear infinite;
 }
@@ -94,16 +101,11 @@ body {
     position: fixed;
     width: 30px;
     height: 30px;
-    border: 2px solid var(--primary-red);
+    border: 2px solid #111111;
     border-radius: 50%;
     pointer-events: none;
     z-index: 9999;
     transition: width 0.08s ease, height 0.08s ease, border-width 0.08s ease;
-    background: radial-gradient(circle, rgba(255, 30, 30, 0.1) 0%, transparent 70%);
-    box-shadow: 0 0 10px var(--primary-red),
-               0 0 20px var(--primary-red),
-               0 0 30px rgba(255, 30, 30, 0.5),
-               inset 0 0 10px rgba(255, 30, 30, 0.2);
     animation: glowPulse 2s infinite;
     opacity: 0;
 }
@@ -112,53 +114,33 @@ body {
     width: 40px;
     height: 40px;
     border-width: 3px;
-    box-shadow: 0 0 15px var(--primary-red),
-               0 0 30px var(--primary-red),
-               0 0 45px rgba(255, 30, 30, 0.7),
-               inset 0 0 15px rgba(255, 30, 30, 0.3);
 }
 
-.cursor-dot.hover {
-    width: 12px;
-    height: 12px;
-}
+.cursor-dot.hover { width: 12px; height: 12px; }
+.cursor-dot.click { width: 6px; height: 6px; }
+.cursor-outline.click { width: 25px; height: 25px; }
 
-.cursor-dot.click {
-    width: 6px;
-    height: 6px;
-}
-
-.cursor-outline.click {
-    width: 25px;
-    height: 25px;
-    box-shadow: 0 0 20px var(--primary-red),
-               0 0 40px var(--primary-red),
-               0 0 60px rgba(255, 30, 30, 0.8),
-               inset 0 0 20px rgba(255, 30, 30, 0.4);
-}
-
-/* Hide cursor on all elements */
-* {
-    cursor: none !important;
-}
+* { cursor: none !important; }
 
 /* ===================================
-   NAVIGATION
+   NAVIGATION — WHITE BG, DARK TEXT
    ================================== */
 nav {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(0, 0, 0, 0.95);
+    background: rgba(255, 255, 255, 0.97);
     backdrop-filter: blur(10px);
     z-index: 1000;
     padding: 15px 0;
     transition: all 0.3s ease;
+    border-bottom: 1px solid var(--border-light);
 }
 
 nav.scrolled {
     padding: 10px 0;
-    background: rgba(0, 0, 0, 0.98);
+    background: rgba(255, 255, 255, 0.99);
+    box-shadow: 0 2px 20px rgba(0,0,0,0.08);
 }
 
 .nav-container {
@@ -172,15 +154,19 @@ nav.scrolled {
 }
 
 .logo {
-    font-size: 28px;
+    font-size: 22px;
     font-weight: bold;
-    color: var(--text-white);
+    color: var(--text-dark);
     text-decoration: none;
 }
 
-.logo .x {
-    color: var(--primary-red);
-    animation: glowPulse 2s infinite;
+.logo .x { color: var(--text-dark); }
+
+.brand-logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: var(--text-dark);
+    text-decoration: none;
 }
 
 .nav-links {
@@ -191,33 +177,55 @@ nav.scrolled {
 }
 
 .nav-links a {
-    color: var(--text-gray);
+    color: var(--text-mid);
     text-decoration: none;
     transition: color 0.3s;
-    font-size: 16px;
+    font-size: 15px;
 }
 
-.nav-links a:hover {
-    color: var(--primary-red);
-}
+.nav-links a:hover { color: var(--text-dark); }
 
 .mobile-menu-toggle {
     display: none;
     font-size: 1.5rem;
-    color: var(--text-white);
+    color: var(--text-dark);
     cursor: pointer;
 }
 
+/* Nav auth buttons */
+.btn-nav-signup {
+    padding: 8px 20px;
+    background: var(--dark-bg);
+    border-radius: 8px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+.btn-nav-signup:hover { background: #000; transform: translateY(-1px); }
+
+.btn-nav-login {
+    padding: 8px 20px;
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    color: var(--text-dark);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+.btn-nav-login:hover { border-color: var(--text-dark); }
+
 /* ===================================
-   HERO SECTION
+   HERO SECTION — DARK BG, WHITE TEXT
    ================================== */
 .hero {
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: radial-gradient(circle at center, rgba(255, 30, 30, 0.1) 0%, transparent 70%);
-    padding: 100px 20px 50px;
+    background: var(--dark-bg);
+    padding: 120px 20px 80px;
     position: relative;
     overflow: hidden;
 }
@@ -227,8 +235,8 @@ nav.scrolled {
     position: absolute;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle, var(--primary-red) 0%, transparent 70%);
-    opacity: 0.05;
+    background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%);
+    opacity: 1;
     animation: rotate 20s linear infinite;
 }
 
@@ -239,23 +247,24 @@ nav.scrolled {
     z-index: 1;
 }
 
-.hero h1 {
+.hero h1, .hero-title {
     font-size: 3.5rem;
     margin-bottom: 20px;
     line-height: 1.2;
+    color: var(--text-white);
 }
 
-.hero .tagline {
-    font-size: 2rem;
-    color: var(--primary-red);
+.hero .tagline, .hero-tagline {
+    font-size: 1.4rem;
+    color: #cccccc;
     margin-bottom: 30px;
     font-weight: 300;
 }
 
 .hero-description {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     line-height: 1.8;
-    color: var(--text-gray);
+    color: #999999;
     margin-bottom: 40px;
 }
 
@@ -273,48 +282,59 @@ nav.scrolled {
     padding: 15px 40px;
     border: none;
     border-radius: 30px;
-    font-size: 18px;
+    font-size: 17px;
     cursor: pointer;
     transition: all 0.3s;
     text-decoration: none;
     display: inline-block;
+    font-family: var(--font-main);
+    font-weight: 600;
 }
 
+/* On dark bg — white button, dark text */
 .btn-primary {
-    background: var(--primary-red);
-    color: white;
-    box-shadow: 0 5px 20px rgba(255, 30, 30, 0.3);
+    background: var(--bg-white);
+    color: var(--text-dark);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
 }
-
 .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(255, 30, 30, 0.5);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+
+/* On light bg — dark button, white text */
+.btn-primary-dark {
+    background: var(--dark-bg);
+    color: var(--text-white);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+}
+.btn-primary-dark:hover {
+    transform: translateY(-2px);
+    background: #000;
 }
 
 .btn-secondary {
     background: transparent;
-    color: var(--primary-red);
-    border: 2px solid var(--primary-red);
+    color: var(--text-white);
+    border: 2px solid rgba(255,255,255,0.4);
 }
-
 .btn-secondary:hover {
-    background: var(--primary-red);
-    color: white;
+    background: rgba(255,255,255,0.1);
+    border-color: #fff;
 }
 
 .btn-whatsapp {
     background: var(--success-green);
     color: white;
-    box-shadow: 0 5px 20px rgba(16, 185, 129, 0.3);
+    box-shadow: 0 5px 20px rgba(37, 211, 102, 0.3);
 }
-
 .btn-whatsapp:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(16, 185, 129, 0.5);
+    box-shadow: 0 8px 30px rgba(37, 211, 102, 0.5);
 }
 
 /* ===================================
-   SECTIONS
+   SECTIONS BASE
    ================================== */
 .section {
     padding: var(--section-padding);
@@ -347,63 +367,70 @@ nav.scrolled {
     transform: translateX(-50%);
     width: 60px;
     height: 3px;
-    background: var(--primary-red);
+    background: currentColor;
 }
 
 .section-subtitle {
     font-size: 1.2rem;
-    color: var(--text-gray);
+    color: var(--text-muted);
     max-width: 600px;
     margin: 0 auto;
 }
 
 /* ===================================
-   STATS SECTION
+   STATS — LIGHT GRAY BG, WHITE CARDS
    ================================== */
-.stats {
-    background: var(--darker-bg);
+.stats, #section-stats {
+    background: var(--bg-light);
     padding: 80px 0;
 }
 
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 40px;
-    margin-top: 50px;
+    gap: 24px;
+    margin-top: 0;
 }
 
 .stat-item {
     text-align: center;
     padding: 30px;
-    background: var(--card-bg);
+    background: var(--card-light);
     border-radius: 15px;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--border-light);
     transition: all 0.3s;
 }
 
+/* Every 4th stat card flips dark */
+.stat-item:nth-child(4n) {
+    background: var(--dark-bg);
+    border-color: var(--dark-bg);
+}
+.stat-item:nth-child(4n) .stat-number { color: var(--text-white); }
+.stat-item:nth-child(4n) .stat-label  { color: #aaaaaa; }
+
 .stat-item:hover {
     transform: translateY(-5px);
-    border-color: var(--primary-red);
-    box-shadow: 0 10px 30px rgba(255, 30, 30, 0.2);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
 }
 
 .stat-number {
     font-size: 3rem;
     font-weight: bold;
-    color: var(--primary-red);
+    color: var(--text-dark);
     margin-bottom: 10px;
 }
 
 .stat-label {
-    color: var(--text-gray);
+    color: var(--text-muted);
     font-size: 1.1rem;
 }
 
 /* ===================================
-   SERVICES SECTION
+   SERVICES SECTION — LIGHT BG
    ================================== */
-.services {
-    background: var(--dark-bg);
+.services, #section-services {
+    background: var(--bg-light);
 }
 
 .services-grid {
@@ -414,8 +441,8 @@ nav.scrolled {
 }
 
 .service-card {
-    background: var(--card-bg);
-    border: 1px solid var(--border-color);
+    background: var(--card-light);
+    border: 1px solid var(--border-light);
     border-radius: 15px;
     padding: 40px 30px;
     transition: all 0.3s;
@@ -429,27 +456,25 @@ nav.scrolled {
     top: 0;
     left: 0;
     width: 100%;
-    height: 5px;
-    background: var(--primary-red);
+    height: 4px;
+    background: var(--dark-bg);
     transform: translateX(-100%);
     transition: transform 0.3s;
 }
 
 .service-card:hover {
     transform: translateY(-10px);
-    border-color: var(--primary-red);
-    box-shadow: 0 20px 40px rgba(255, 30, 30, 0.2);
+    border-color: #ccc;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
 }
 
-.service-card:hover::before {
-    transform: translateX(0);
-}
+.service-card:hover::before { transform: translateX(0); }
 
 .service-number {
     font-size: 3rem;
-    color: var(--primary-red);
+    color: var(--border-light);
     font-weight: bold;
-    opacity: 0.3;
+    opacity: 1;
     position: absolute;
     top: 20px;
     left: 30px;
@@ -457,7 +482,7 @@ nav.scrolled {
 
 .service-icon {
     font-size: 3rem;
-    color: var(--primary-red);
+    color: var(--text-dark);
     margin-bottom: 20px;
     display: block;
     margin-top: 30px;
@@ -466,11 +491,11 @@ nav.scrolled {
 .service-title {
     font-size: 1.5rem;
     margin-bottom: 15px;
-    color: var(--text-white);
+    color: var(--text-dark);
 }
 
 .service-description {
-    color: var(--text-gray);
+    color: var(--text-muted);
     line-height: 1.6;
 }
 
@@ -480,7 +505,7 @@ nav.scrolled {
 }
 
 .service-features li {
-    color: var(--text-gray);
+    color: var(--text-muted);
     margin-bottom: 8px;
     position: relative;
     padding-right: 20px;
@@ -490,61 +515,70 @@ nav.scrolled {
     content: '✓';
     position: absolute;
     right: 0;
-    color: var(--success-green);
+    color: var(--text-dark);
     font-weight: bold;
 }
 
 /* ===================================
-   MEDICAL FOCUS SECTION
+   FEATURES (medical grid) — WHITE BG
    ================================== */
-.medical-focus {
-    background: var(--darker-bg);
+.features, #section-features {
+    background: var(--bg-white);
 }
 
 .medical-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 40px;
-    margin-top: 50px;
+    gap: 24px;
+    margin-top: 40px;
 }
 
 .medical-card {
-    background: var(--card-bg);
-    border: 1px solid var(--border-color);
+    background: var(--card-light);
+    border: 1px solid var(--border-light);
     border-radius: 15px;
     padding: 40px 30px;
     text-align: center;
     transition: all 0.3s;
 }
 
+/* Every 3rd card flips dark */
+.medical-card:nth-child(3n) {
+    background: var(--dark-bg);
+    border-color: var(--dark-bg);
+}
+.medical-card:nth-child(3n) .medical-icon        { color: var(--text-white); }
+.medical-card:nth-child(3n) .medical-title       { color: var(--text-white); }
+.medical-card:nth-child(3n) .medical-description { color: #aaaaaa; }
+
 .medical-card:hover {
     transform: translateY(-10px);
-    border-color: var(--secondary-blue);
-    box-shadow: 0 20px 40px rgba(37, 99, 235, 0.2);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+    border-color: #ccc;
 }
 
 .medical-icon {
     font-size: 3.5rem;
-    color: var(--secondary-blue);
+    color: var(--text-dark);
     margin-bottom: 20px;
 }
 
 .medical-title {
     font-size: 1.4rem;
     margin-bottom: 15px;
-    color: var(--text-white);
+    color: var(--text-dark);
 }
 
 .medical-description {
-    color: var(--text-gray);
+    color: var(--text-muted);
     line-height: 1.6;
 }
 
 /* ===================================
-   TEAM SECTION
+   TEAM SECTION — WHITE BG
    ================================== */
-.team {
-    background: var(--dark-bg);
+.team, #section-team {
+    background: var(--bg-white);
 }
 
 .team-grid {
@@ -555,8 +589,8 @@ nav.scrolled {
 }
 
 .team-card {
-    background: var(--card-bg);
-    border: 1px solid var(--border-color);
+    background: var(--card-light);
+    border: 1px solid var(--border-light);
     border-radius: 15px;
     padding: 40px 30px;
     text-align: center;
@@ -565,15 +599,14 @@ nav.scrolled {
 
 .team-card:hover {
     transform: translateY(-10px);
-    border-color: var(--primary-red);
-    box-shadow: 0 20px 40px rgba(255, 30, 30, 0.2);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.08);
 }
 
 .team-avatar {
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    background: var(--primary-red);
+    background: var(--dark-bg);
     margin: 0 auto 20px;
     display: flex;
     align-items: center;
@@ -585,26 +618,26 @@ nav.scrolled {
 
 .team-name {
     font-size: 1.3rem;
-    color: var(--text-white);
+    color: var(--text-dark);
     margin-bottom: 10px;
 }
 
 .team-role {
-    color: var(--primary-red);
+    color: var(--text-muted);
     margin-bottom: 15px;
     font-weight: 600;
 }
 
 .team-bio {
-    color: var(--text-gray);
+    color: var(--text-muted);
     line-height: 1.6;
 }
 
 /* ===================================
-   PROCESS SECTION
+   PROCESS SECTION — LIGHT BG
    ================================== */
-.process {
-    background: var(--darker-bg);
+.process, #section-process {
+    background: var(--bg-light);
 }
 
 .process-steps {
@@ -626,47 +659,47 @@ nav.scrolled {
     right: -40px;
     width: 40px;
     height: 2px;
-    background: var(--primary-red);
-    opacity: 0.3;
+    background: var(--border-light);
+    opacity: 1;
 }
 
-.process-step:last-child::after {
-    display: none;
-}
+.process-step:last-child::after { display: none; }
 
 .process-icon-wrapper {
     width: 120px;
     height: 120px;
     margin: 0 auto 30px;
-    background: var(--card-bg);
+    background: var(--bg-white);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px solid var(--border-color);
+    border: 2px solid var(--border-light);
     transition: all 0.3s;
 }
 
 .process-step:hover .process-icon-wrapper {
-    border-color: var(--primary-red);
+    border-color: var(--dark-bg);
+    background: var(--dark-bg);
     transform: scale(1.1);
-    box-shadow: 0 10px 30px rgba(255, 30, 30, 0.3);
 }
+
+.process-step:hover .process-icon { color: var(--text-white); }
 
 .process-icon {
     font-size: 3rem;
-    color: var(--primary-red);
+    color: var(--text-dark);
 }
 
 .process-title {
     font-size: 1.3rem;
     margin-bottom: 15px;
-    color: var(--text-white);
+    color: var(--text-dark);
 }
 
 .process-items {
     list-style: none;
-    color: var(--text-gray);
+    color: var(--text-muted);
     line-height: 1.8;
 }
 
@@ -680,14 +713,14 @@ nav.scrolled {
     content: '•';
     position: absolute;
     right: 0;
-    color: var(--primary-red);
+    color: var(--text-dark);
 }
 
 /* ===================================
-   CLIENTS SECTION
+   CLIENTS SECTION — WHITE BG
    ================================== */
-.clients {
-    background: var(--dark-bg);
+.clients, #section-clients {
+    background: var(--bg-white);
     padding: 80px 0;
 }
 
@@ -700,7 +733,8 @@ nav.scrolled {
 }
 
 .client-logo {
-    background: var(--card-bg);
+    background: var(--bg-light);
+    border: 1px solid var(--border-light);
     padding: 30px;
     border-radius: 10px;
     display: flex;
@@ -709,27 +743,33 @@ nav.scrolled {
     height: 120px;
     transition: all 0.3s;
     filter: grayscale(100%);
-    opacity: 0.7;
+    opacity: 0.6;
 }
 
 .client-logo:hover {
     filter: grayscale(0%);
     opacity: 1;
     transform: scale(1.05);
-    box-shadow: 0 10px 30px rgba(255, 30, 30, 0.2);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    background: #fff;
 }
 
 .client-logo i {
     font-size: 2.5rem;
-    color: var(--primary-red);
+    color: var(--text-dark);
 }
 
 /* ===================================
-   CASE STUDIES SECTION
+   CASE STUDIES — DARK BG
    ================================== */
-.case-studies {
-    background: var(--darker-bg);
+.case-studies, #section-casestudies {
+    background: var(--dark-bg);
 }
+
+#section-casestudies .section-title { color: var(--text-white); }
+#section-casestudies .section-subtitle { color: #888; }
+
+.case-studies-container { margin-top: 40px; }
 
 .case-study {
     background: var(--card-bg);
@@ -741,8 +781,8 @@ nav.scrolled {
 }
 
 .case-study:hover {
-    border-color: var(--primary-red);
-    box-shadow: 0 10px 30px rgba(255, 30, 30, 0.2);
+    border-color: #444;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
 }
 
 .case-study-header {
@@ -755,12 +795,12 @@ nav.scrolled {
 .case-study-icon {
     width: 60px;
     height: 60px;
-    background: var(--primary-red);
+    background: var(--text-white);
     border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: var(--text-dark);
     font-size: 1.5rem;
 }
 
@@ -789,14 +829,14 @@ nav.scrolled {
 .result-item {
     text-align: center;
     padding: 15px;
-    background: var(--darker-bg);
+    background: rgba(255,255,255,0.04);
     border-radius: 8px;
 }
 
 .result-number {
     font-size: 1.5rem;
     font-weight: bold;
-    color: var(--success-green);
+    color: var(--text-white);
 }
 
 .result-label {
@@ -805,12 +845,15 @@ nav.scrolled {
 }
 
 /* ===================================
-   TESTIMONIALS
+   TESTIMONIALS — DARK BG
    ================================== */
-.testimonials {
+.testimonials, #section-testimonials {
     background: var(--dark-bg);
     padding: 100px 0;
 }
+
+#section-testimonials .section-title { color: var(--text-white); }
+#section-testimonials .section-subtitle { color: #888; }
 
 .testimonials-grid {
     display: grid;
@@ -827,9 +870,19 @@ nav.scrolled {
     transition: all 0.3s;
 }
 
+/* Middle card flips white for contrast punch */
+.testimonial:nth-child(2) {
+    background: var(--bg-white);
+    border-color: var(--border-light);
+}
+.testimonial:nth-child(2) .testimonial-text { color: var(--text-dark); }
+.testimonial:nth-child(2) .author-info h4  { color: var(--text-dark); }
+.testimonial:nth-child(2) .author-info p   { color: var(--text-muted); }
+.testimonial:nth-child(2) .author-avatar   { background: var(--dark-bg); }
+
 .testimonial:hover {
-    border-color: var(--primary-red);
-    box-shadow: 0 10px 30px rgba(255, 30, 30, 0.2);
+    border-color: #444;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
 
 .testimonial-text {
@@ -850,7 +903,7 @@ nav.scrolled {
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    background: var(--primary-red);
+    background: #333;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -870,33 +923,49 @@ nav.scrolled {
 }
 
 /* ===================================
-   CTA SECTION
+   CTA SECTION — LIGHT BG, DARK TEXT
    ================================== */
-.cta {
-    background: linear-gradient(135deg, rgba(255, 30, 30, 0.1) 0%, transparent 100%);
+.cta, #section-cta {
+    background: var(--bg-light);
     padding: 100px 0;
     text-align: center;
 }
 
-.cta h2 {
+.cta h2, .cta-title {
     font-size: 3rem;
     margin-bottom: 20px;
-    color: var(--text-white);
+    color: var(--text-dark);
 }
 
-.cta p {
+.cta p, .cta-subtitle {
     font-size: 1.3rem;
-    color: var(--text-gray);
+    color: var(--text-muted);
     margin-bottom: 40px;
 }
 
+/* On light bg, primary btn is dark */
+#section-cta .btn-primary,
+.cta .btn-primary {
+    background: var(--dark-bg);
+    color: var(--text-white);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+}
+#section-cta .btn-primary:hover,
+.cta .btn-primary:hover {
+    background: #000;
+    transform: translateY(-2px);
+}
+
 /* ===================================
-   CONTACT FORM
+   CONTACT FORM — DARK BG
    ================================== */
-.contact {
+.contact, #section-contact {
     background: var(--darker-bg);
     padding: 100px 0;
 }
+
+#section-contact .section-title { color: var(--text-white); }
+#section-contact .section-subtitle { color: #888; }
 
 .contact-container {
     display: grid;
@@ -930,12 +999,12 @@ nav.scrolled {
 .contact-icon {
     width: 50px;
     height: 50px;
-    background: var(--primary-red);
+    background: var(--text-white);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: var(--text-dark);
 }
 
 .contact-details h4 {
@@ -943,9 +1012,11 @@ nav.scrolled {
     margin-bottom: 5px;
 }
 
-.contact-details p {
+.contact-details p, .contact-details a {
     color: var(--text-gray);
+    text-decoration: none;
 }
+.contact-details a:hover { color: var(--text-white); }
 
 .contact-form {
     background: var(--card-bg);
@@ -954,9 +1025,7 @@ nav.scrolled {
     border: 1px solid var(--border-color);
 }
 
-.form-group {
-    margin-bottom: 25px;
-}
+.form-group { margin-bottom: 25px; }
 
 .form-group label {
     display: block;
@@ -966,7 +1035,8 @@ nav.scrolled {
 }
 
 .form-group input,
-.form-group textarea {
+.form-group textarea,
+.form-group select {
     width: 100%;
     padding: 15px;
     background: var(--darker-bg);
@@ -975,13 +1045,15 @@ nav.scrolled {
     color: var(--text-white);
     font-size: 1rem;
     transition: all 0.3s;
+    font-family: var(--font-main);
 }
 
 .form-group input:focus,
-.form-group textarea:focus {
+.form-group textarea:focus,
+.form-group select:focus {
     outline: none;
-    border-color: var(--primary-red);
-    box-shadow: 0 0 10px rgba(255, 30, 30, 0.2);
+    border-color: #555;
+    box-shadow: 0 0 0 3px rgba(255,255,255,0.04);
 }
 
 .form-group textarea {
@@ -989,188 +1061,37 @@ nav.scrolled {
     resize: vertical;
 }
 
-/* ===================================
-   FOOTER
-   ================================== */
-footer {
-    background: var(--dark-bg);
-    padding: 50px 0 30px;
-    border-top: 1px solid var(--border-color);
-}
-
-.footer-content {
-    max-width: var(--container-max-width);
-    margin: 0 auto;
-    padding: 0 20px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 40px;
-}
-
-.footer-section h3 {
-    color: var(--text-white);
-    margin-bottom: 20px;
-    font-size: 1.3rem;
-}
-
-.footer-section p,
-.footer-section a {
-    color: var(--text-gray);
-    line-height: 1.8;
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-.footer-section a:hover {
-    color: var(--primary-red);
-}
-
-.footer-section ul {
-    list-style: none;
-}
-
-.footer-section ul li {
-    margin-bottom: 10px;
-}
-
-.social-links {
-    display: flex;
-    gap: 15px;
-    margin-top: 20px;
-}
-
-.social-links a {
-    width: 40px;
-    height: 40px;
-    background: var(--card-bg);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--text-gray);
-    transition: all 0.3s;
-}
-
-.social-links a:hover {
-    background: var(--primary-red);
-    color: white;
-    transform: translateY(-3px);
-}
-
-.social-links a[href*="tiktok"]:hover {
-    background: #000;
-    color: #ff0050;
-}
-
-.social-links a[href*="instagram"]:hover {
-    background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
-}
-
-.social-links a[href*="youtube"]:hover {
-    background: #ff0000;
-}
-
-.social-links a[href*="linkedin"]:hover {
-    background: #0077b5;
-}
-
-.footer-bottom {
-    text-align: center;
-    padding-top: 30px;
-    margin-top: 30px;
-    border-top: 1px solid var(--border-color);
-    color: var(--text-gray);
-}
-
-/* ===================================
-   LOADING & SCROLL TO TOP
-   ================================== */
-.loader {
-    position: fixed;
-    top: 0;
-    left: 0;
+/* Submit button on dark bg — white */
+.contact-form .btn-primary,
+.contact-form button[type="submit"] {
+    background: var(--text-white);
+    color: var(--text-dark);
+    border: none;
     width: 100%;
-    height: 100%;
+    padding: 15px 40px;
+    border-radius: 30px;
+    font-size: 17px;
+    font-weight: 600;
+    font-family: var(--font-main);
+    cursor: none;
+    transition: all 0.3s;
+    box-shadow: 0 4px 16px rgba(255,255,255,0.1);
+}
+.contact-form .btn-primary:hover,
+.contact-form button[type="submit"]:hover {
+    background: #f0f0f0;
+    transform: translateY(-2px);
+}
+
+/* ===================================
+   PRODUCTS SECTION — DARK BG
+   ================================== */
+#section-products {
     background: var(--dark-bg);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-    transition: opacity 0.5s;
 }
+#section-products .section-title { color: var(--text-white); }
+#section-products .section-subtitle { color: #888; }
 
-.loader.hidden {
-    opacity: 0;
-    pointer-events: none;
-}
-
-.loader-spinner {
-    width: 50px;
-    height: 50px;
-    border: 3px solid var(--border-color);
-    border-top-color: var(--primary-red);
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-}
-
-.scroll-top {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 50px;
-    height: 50px;
-    background: var(--primary-red);
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s;
-    box-shadow: 0 5px 20px rgba(255, 30, 30, 0.3);
-}
-
-.scroll-top.visible {
-    opacity: 1;
-    visibility: visible;
-}
-
-.scroll-top:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(255, 30, 30, 0.5);
-}
-
-/* ===================================
-   WHATSAPP FLOAT BUTTON
-   ================================== */
-.whatsapp-float {
-    position: fixed;
-    bottom: 100px;
-    right: 30px;
-    width: 60px;
-    height: 60px;
-    background: #25d366;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 1.8rem;
-    z-index: 1000;
-    transition: all 0.3s;
-    animation: pulse 2s infinite;
-}
-
-.whatsapp-float:hover {
-    transform: scale(1.1);
-    box-shadow: 0 10px 30px rgba(37, 211, 102, 0.5);
-}
-
-/* ===================================
-   PRODUCTS SECTION
-   ================================== */
 .products-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -1180,7 +1101,7 @@ footer {
 
 .product-card {
     background: rgba(20, 20, 20, 0.8);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 20px;
     padding: 3rem 2.5rem;
     text-align: center;
@@ -1196,40 +1117,36 @@ footer {
     left: 0;
     width: 100%;
     height: 4px;
-    background: linear-gradient(90deg, var(--primary-red), transparent);
+    background: var(--text-white);
     transform: scaleX(0);
     transition: transform 0.3s;
 }
 
-.product-card:hover::before {
-    transform: scaleX(1);
-}
+.product-card:hover::before { transform: scaleX(1); }
 
 .product-card:hover {
     transform: translateY(-10px);
-    border-color: var(--primary-red);
-    box-shadow: 0 20px 40px rgba(255, 30, 30, 0.3);
+    border-color: rgba(255,255,255,0.2);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
 }
 
 .product-badge {
     position: absolute;
     top: 20px;
     right: 20px;
-    background: var(--primary-red);
-    color: white;
+    background: var(--text-white);
+    color: var(--text-dark);
     padding: 0.5rem 1rem;
     border-radius: 20px;
     font-size: 0.85rem;
     font-weight: 600;
 }
 
-.product-badge.coming-soon {
-    background: #666;
-}
+.product-badge.coming-soon { background: #444; color: #aaa; }
 
 .product-icon {
     font-size: 4rem;
-    color: var(--primary-red);
+    color: var(--text-white);
     margin-bottom: 1.5rem;
 }
 
@@ -1241,8 +1158,7 @@ footer {
 }
 
 .product-name .x-glow {
-    color: var(--primary-red);
-    text-shadow: 0 0 20px var(--primary-red);
+    color: var(--text-white);
     animation: glowPulse 2s ease-in-out infinite;
 }
 
@@ -1266,24 +1182,19 @@ footer {
 
 .product-features li {
     padding: 0.8rem 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
     color: var(--text-gray);
     display: flex;
     align-items: center;
     gap: 0.5rem;
 }
 
-.product-features li:last-child {
-    border-bottom: none;
-}
-
-.product-features i {
-    color: var(--primary-red);
-}
+.product-features li:last-child { border-bottom: none; }
+.product-features i { color: var(--text-white); }
 
 .product-price {
-    background: rgba(255, 30, 30, 0.1);
-    border: 1px solid var(--primary-red);
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
     border-radius: 12px;
     padding: 1.5rem;
     margin-bottom: 2rem;
@@ -1294,22 +1205,9 @@ footer {
     flex-wrap: wrap;
 }
 
-.price-from {
-    font-size: 0.9rem;
-    color: var(--text-gray);
-}
-
-.price-amount {
-    font-size: 3rem;
-    font-weight: 900;
-    color: var(--primary-red);
-    text-shadow: 0 0 20px rgba(255, 30, 30, 0.5);
-}
-
-.price-currency {
-    font-size: 1rem;
-    color: var(--text-gray);
-}
+.price-from  { font-size: 0.9rem; color: var(--text-gray); }
+.price-amount { font-size: 3rem; font-weight: 900; color: var(--text-white); }
+.price-currency { font-size: 1rem; color: var(--text-gray); }
 
 .product-buttons {
     display: flex;
@@ -1325,26 +1223,9 @@ footer {
     gap: 0.5rem;
 }
 
-/* CliniX Featured Card */
-.clinix-card {
-    border-color: var(--primary-red);
-    box-shadow: 0 0 40px rgba(255, 30, 30, 0.2);
-}
-
-.clinix-card:hover {
-    box-shadow: 0 20px 60px rgba(255, 30, 30, 0.4);
-}
-
 /* Coming Soon Card */
-.coming-soon-card {
-    opacity: 0.7;
-    filter: grayscale(30%);
-}
-
-.coming-soon-card:hover {
-    opacity: 1;
-    filter: grayscale(0%);
-}
+.coming-soon-card { opacity: 0.7; filter: grayscale(30%); }
+.coming-soon-card:hover { opacity: 1; filter: grayscale(0%); }
 
 .coming-soon-text {
     display: flex;
@@ -1352,33 +1233,176 @@ footer {
     align-items: center;
     gap: 1rem;
     padding: 2rem;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255,255,255,0.04);
     border-radius: 12px;
     margin-top: 2rem;
 }
 
-.coming-soon-text i {
-    font-size: 2rem;
-    color: var(--primary-red);
+.coming-soon-text i { font-size: 2rem; color: var(--text-white); }
+.coming-soon-text p { font-size: 1.1rem; color: var(--text-gray); font-weight: 600; }
+
+/* ===================================
+   FOOTER — NEAR BLACK
+   ================================== */
+footer {
+    background: var(--darker-bg);
+    padding: 50px 0 30px;
+    border-top: 1px solid var(--border-color);
 }
 
-.coming-soon-text p {
-    font-size: 1.1rem;
-    color: var(--text-gray);
-    font-weight: 600;
+.footer-content {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
 }
+
+.footer-section h3 {
+    color: var(--text-white);
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.footer-section p,
+.footer-section a {
+    color: #666;
+    line-height: 1.8;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section a:hover { color: var(--text-white); }
+.footer-section ul { list-style: none; }
+.footer-section ul li { margin-bottom: 10px; }
+
+.social-links {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.social-links a {
+    width: 38px;
+    height: 38px;
+    background: #1c1c1c;
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    transition: all 0.3s;
+}
+
+.social-links a:hover {
+    background: var(--text-white);
+    color: var(--text-dark);
+    border-color: var(--text-white);
+    transform: translateY(-2px);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 30px;
+    margin-top: 30px;
+    border-top: 1px solid var(--border-color);
+    color: #444;
+    font-size: 0.9rem;
+}
+
+/* ===================================
+   LOADING & SCROLL TO TOP
+   ================================== */
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: opacity 0.5s;
+}
+
+.loader.hidden { opacity: 0; pointer-events: none; }
+
+.loader-spinner {
+    width: 50px;
+    height: 50px;
+    border: 3px solid var(--border-light);
+    border-top-color: var(--text-dark);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.scroll-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: var(--text-dark);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.scroll-top.visible { opacity: 1; visibility: visible; }
+.scroll-top:hover { transform: translateY(-5px); }
+
+/* ===================================
+   WHATSAPP FLOAT BUTTON
+   ================================== */
+.whatsapp-float {
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: #25d366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.8rem;
+    z-index: 1000;
+    transition: all 0.3s;
+    animation: pulse 2s infinite;
+    box-shadow: 0 4px 16px rgba(37,211,102,0.4);
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 30px rgba(37, 211, 102, 0.5);
+}
+
+/* ===================================
+   ANIMATIONS
+   ================================== */
+@keyframes spin      { to { transform: rotate(360deg); } }
+@keyframes pulse     { 0%,100%{box-shadow:0 0 0 0 rgba(37,211,102,.4)} 50%{box-shadow:0 0 0 12px rgba(37,211,102,0)} }
+@keyframes glowPulse { 0%,100%{opacity:1} 50%{opacity:.7} }
+@keyframes rotate    { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
 
 /* Responsive */
 @media (max-width: 767px) {
-    .products-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .product-name {
-        font-size: 1.5rem;
-    }
-    
-    .price-amount {
-        font-size: 2rem;
-    }
+    .products-grid { grid-template-columns: 1fr; }
+    .product-name  { font-size: 1.5rem; }
+    .price-amount  { font-size: 2rem; }
+    .contact-container { grid-template-columns: 1fr; }
+    .footer-content { grid-template-columns: repeat(2, 1fr); }
 }
