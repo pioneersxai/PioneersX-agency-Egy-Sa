@@ -3,15 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="keywords" content="">
-    <meta name="author" content="">
-    <meta property="og:title" content="">
-    <meta property="og:description" content="">
+    <meta name="description" content="وكالة PioneersX متخصصة في بناء مواقع احترافية للمشاريع الصغيرة والمتوسطة في مصر والخليج">
+    <meta name="keywords" content="تصميم مواقع, بناء مواقع, وكالة ويب, مصر, السعودية, PioneersX">
+    <meta property="og:title" content="PioneersX — نبني مواقع تبيع">
+    <meta property="og:description" content="وكالة ويب متخصصة — مواقع احترافية بأسعار شفافة وتسليم سريع">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="">
-    <title>Loading...</title>
-    <link rel="icon" type="image/svg+xml" id="favicon" href="">
+    <title>PioneersX — نبني مواقع تبيع</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='50' y='75' font-family='Arial,sans-serif' font-size='95' font-weight='bold' text-anchor='middle' fill='%23ff1e1e'%3EX%3C/text%3E%3C/svg%3E">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
@@ -21,11 +19,7 @@
         .nav-container { display:flex; justify-content:space-between; align-items:center; width:100%; }
         .nav-links { display:flex; gap:25px; list-style:none; margin:0; padding:0; }
         .nav-auth-buttons { display:flex; gap:10px; align-items:center; }
-        .btn-nav-login { padding:8px 20px; border:1px solid rgba(255,255,255,0.3); border-radius:8px; color:#fff; text-decoration:none; font-size:0.9rem; transition:all 0.3s ease; }
-        .btn-nav-login:hover { border-color:var(--primary-red); color:var(--primary-red); }
-        .btn-nav-signup { padding:8px 20px; background:var(--primary-red); border-radius:8px; color:#fff; text-decoration:none; font-size:0.9rem; font-weight:600; transition:all 0.3s ease; }
-        .btn-nav-signup:hover { background:var(--primary-dark,#cc0000); transform:translateY(-2px); }
-        @media (max-width:992px) { .nav-links { display:none !important; } .nav-links.active { display:flex !important; flex-direction:column; } }
+        @media(max-width:992px){.nav-links{display:none!important}.nav-links.active{display:flex!important;flex-direction:column}}
     </style>
 </head>
 <body>
@@ -33,15 +27,15 @@
     <div class="cursor-outline" id="cursorOutline"></div>
     <div class="loader" id="loader"><div class="loader-spinner"></div></div>
 
-    <!-- NAVBAR -->
     <nav id="navbar">
         <div class="nav-container">
-            <a href="#" class="logo brand-logo"></a>
-            <ul class="nav-links" id="navLinks"></ul>
-            <div class="nav-auth-buttons" id="nav-auth">
-                <a href="./dashboard/register.html" class="btn-nav-signup">إنشاء حساب</a>
-                <a href="./dashboard/index.html"    class="btn-nav-login">تسجيل الدخول</a>
-            </div>
+            <a href="#home" class="logo">Pioneers<span class="x">X</span></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#contact">تواصل معنا</a></li>
+                <li><a href="#products">الأسعار</a></li>
+                <li><a href="#services">خدماتنا</a></li>
+                <li><a href="#home">الرئيسية</a></li>
+            </ul>
             <div class="mobile-menu-toggle" id="mobileMenu"><i class="fas fa-bars"></i></div>
         </div>
     </nav>
@@ -49,197 +43,359 @@
     <!-- HERO -->
     <section class="hero" id="home">
         <div class="hero-content">
-            <h1 class="hero-title fade-in"></h1>
-            <p class="tagline hero-tagline fade-in"></p>
-            <p class="hero-description fade-in"></p>
-            <div class="hero-buttons fade-in"></div>
+            <h1 class="fade-in">موقعك = أول انطباع عن مشروعك</h1>
+            <p class="tagline fade-in">نبنيه لك — احترافي، سريع، يشتغل</p>
+            <p class="hero-description fade-in">نصمم ونبرمج مواقع تحول الزوار لعملاء. كافيهات، عيادات، شركات، متاجر — موقع واحد يناسب طبيعة عملك بالضبط.</p>
+            <div class="hero-buttons fade-in">
+                <a href="#products" class="btn btn-primary">شوف الأسعار</a>
+                <a href="https://wa.me/9665477705498" class="btn btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> تواصل على واتساب</a>
+                <a href="#services" class="btn btn-secondary">خدماتنا</a>
+            </div>
         </div>
     </section>
 
     <!-- STATS -->
-    <section class="stats section" id="section-stats">
+    <section class="stats">
         <div class="container">
-            <div class="stats-grid"></div>
+            <div class="stats-grid">
+                <div class="stat-item fade-in"><div class="stat-number">15+</div><div class="stat-label">موقع تم تسليمه</div></div>
+                <div class="stat-item fade-in"><div class="stat-number">7</div><div class="stat-label">أيام متوسط التسليم</div></div>
+                <div class="stat-item fade-in"><div class="stat-number">100%</div><div class="stat-label">رضا العملاء</div></div>
+                <div class="stat-item fade-in"><div class="stat-number">24/7</div><div class="stat-label">دعم فني بعد التسليم</div></div>
+            </div>
         </div>
     </section>
 
     <!-- FEATURES -->
-    <section class="features section" id="section-features">
+    <section class="section" id="features" style="background:var(--darker-bg)">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title fade-in"></h2>
-                <p class="section-subtitle fade-in"></p>
+                <h2 class="section-title fade-in">ليه PioneersX؟</h2>
+                <p class="section-subtitle fade-in">مش بس موقع — منظومة كاملة تشتغل لصالح مشروعك</p>
             </div>
-            <div class="medical-grid"></div>
+            <div class="medical-grid">
+                <div class="medical-card fade-in"><i class="fas fa-bolt medical-icon"></i><h3 class="medical-title">تسليم في 7 أيام</h3><p class="medical-description">مش شهر ولا شهرين. نسلم موقعك الاحترافي خلال أسبوع واحد فعلياً.</p></div>
+                <div class="medical-card fade-in"><i class="fas fa-mobile-alt medical-icon"></i><h3 class="medical-title">يشتغل على كل الأجهزة</h3><p class="medical-description">موبايل، تابلت، لاب توب — الموقع يبان احترافي على أي شاشة تلقائياً.</p></div>
+                <div class="medical-card fade-in"><i class="fas fa-search medical-icon"></i><h3 class="medical-title">محسّن لجوجل SEO</h3><p class="medical-description">الموقع مبني بطريقة تخليه يظهر في نتائج البحث ويجيب عملاء جدد.</p></div>
+                <div class="medical-card fade-in"><i class="fas fa-palette medical-icon"></i><h3 class="medical-title">تصميم يعكس هويتك</h3><p class="medical-description">ألوانك، شعارك، روح مشروعك — مش تيمبليت جاهز كله شبه بعض.</p></div>
+                <div class="medical-card fade-in"><i class="fas fa-shield-alt medical-icon"></i><h3 class="medical-title">سريع وآمن 100%</h3><p class="medical-description">مواقعنا محمية ومستضافة على أسرع سيرفرات بشهادات SSL مجانية.</p></div>
+                <div class="medical-card fade-in"><i class="fas fa-headset medical-icon"></i><h3 class="medical-title">دعم ما بعد التسليم</h3><p class="medical-description">مش بنسلم ونغيب. دعم فني مستمر لأي تعديل أو استفسار بعد الإطلاق.</p></div>
+            </div>
         </div>
     </section>
 
     <!-- SERVICES -->
-    <section class="services section" id="section-services">
+    <section class="services section" id="services">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title fade-in"></h2>
-                <p class="section-subtitle fade-in"></p>
+                <h2 class="section-title fade-in">خدماتنا</h2>
+                <p class="section-subtitle fade-in">كل ما تحتاجه لتكون موجود أون لاين بشكل احترافي</p>
             </div>
-            <div class="services-grid"></div>
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <span class="service-number">01</span>
+                    <i class="fas fa-store service-icon"></i>
+                    <h3 class="service-title">مواقع الأعمال المحلية</h3>
+                    <p class="service-description">كافيهات، مطاعم، عيادات، صالونات — موقع يعرض مشروعك ويخلي العميل يتواصل معك فوراً</p>
+                    <ul class="service-features">
+                        <li>تصميم يعكس هوية المشروع</li>
+                        <li>قسم تواصل وخرائط</li>
+                        <li>معلومات وأوقات عمل</li>
+                        <li>زر واتساب مباشر</li>
+                    </ul>
+                </div>
+                <div class="service-card fade-in">
+                    <span class="service-number">02</span>
+                    <i class="fas fa-briefcase service-icon"></i>
+                    <h3 class="service-title">مواقع الشركات والخدمات</h3>
+                    <p class="service-description">شركتك تستحق موقع يقنع العميل قبل ما يتصل بيك — عرض خدمات، فريق، وأعمال سابقة</p>
+                    <ul class="service-features">
+                        <li>صفحات متعددة منظمة</li>
+                        <li>عرض الخدمات والأسعار</li>
+                        <li>نموذج طلب خدمة</li>
+                        <li>ربط سوشيال ميديا</li>
+                    </ul>
+                </div>
+                <div class="service-card fade-in">
+                    <span class="service-number">03</span>
+                    <i class="fas fa-cogs service-icon"></i>
+                    <h3 class="service-title">أنظمة ولوحات تحكم</h3>
+                    <p class="service-description">تحتاج حجوزات، نظام عملاء، أو لوحة إدارة؟ نبني لك النظام اللي يناسب طبيعة شغلك</p>
+                    <ul class="service-features">
+                        <li>لوحة تحكم مخصصة</li>
+                        <li>نظام حجوزات أونلاين</li>
+                        <li>إدارة العملاء والطلبات</li>
+                        <li>تقارير وإحصائيات</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- PRODUCTS -->
-    <section class="products section" id="section-products">
+    <!-- PRODUCTS / PRICING -->
+    <section class="section" id="products" style="background:var(--darker-bg)">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title fade-in"></h2>
-                <p class="section-subtitle fade-in"></p>
+                <h2 class="section-title fade-in">الباقات والأسعار</h2>
+                <p class="section-subtitle fade-in">أسعار شفافة — بدون مفاجآت</p>
             </div>
-            <div class="products-grid"></div>
-        </div>
-    </section>
+            <div class="products-grid">
+                <!-- STARTER -->
+                <div class="product-card fade-in">
+                    <div class="product-badge">الأكثر طلباً</div>
+                    <div class="product-icon"><i class="fas fa-rocket"></i></div>
+                    <h3 class="product-name">ستارتر</h3>
+                    <p class="product-tagline">صفحة واحدة — تأثير كبير</p>
+                    <p class="product-description">مثالي للكافيهات والعيادات والمشاريع اللي تحتاج حضور أونلاين سريع واحترافي.</p>
+                    <ul class="product-features">
+                        <li><i class="fas fa-check"></i> صفحة هبوط احترافية</li>
+                        <li><i class="fas fa-check"></i> تصميم مخصص بهويتك</li>
+                        <li><i class="fas fa-check"></i> يشتغل على الموبايل</li>
+                        <li><i class="fas fa-check"></i> نموذج تواصل + واتساب</li>
+                        <li><i class="fas fa-check"></i> محسّن لجوجل</li>
+                        <li><i class="fas fa-check"></i> تسليم خلال 7 أيام</li>
+                        <li><i class="fas fa-check"></i> شهر دعم مجاني</li>
+                    </ul>
+                    <div class="product-price">
+                        <span class="price-amount" style="font-size:1.8rem">15,000 — 18,000</span>
+                        <span class="price-currency">جنيه</span>
+                    </div>
+                    <div class="product-buttons">
+                        <a href="https://wa.me/9665477705498?text=مرحباً، أريد الاستفسار عن باقة ستارتر" class="btn btn-primary" target="_blank">ابدأ مشروعك</a>
+                    </div>
+                </div>
 
-    <!-- TEAM -->
-    <section class="team section" id="section-team">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title fade-in"></h2>
-                <p class="section-subtitle fade-in"></p>
+                <!-- PRO -->
+                <div class="product-card fade-in" style="border-color:var(--primary-red);box-shadow:0 0 40px rgba(255,30,30,0.2)">
+                    <div class="product-badge">للشركات والمشاريع</div>
+                    <div class="product-icon"><i class="fas fa-layer-group"></i></div>
+                    <h3 class="product-name">برو</h3>
+                    <p class="product-tagline">موقع متكامل — نتيجة حقيقية</p>
+                    <p class="product-description">للشركات والمشاريع اللي تحتاج أكثر من صفحة — مع نظام خلفي وإدارة محتوى.</p>
+                    <ul class="product-features">
+                        <li><i class="fas fa-check"></i> صفحات متعددة (3-7 صفحات)</li>
+                        <li><i class="fas fa-check"></i> لوحة إدارة محتوى</li>
+                        <li><i class="fas fa-check"></i> نظام حجوزات أو نماذج متقدمة</li>
+                        <li><i class="fas fa-check"></i> ربط قاعدة بيانات</li>
+                        <li><i class="fas fa-check"></i> بريد إلكتروني احترافي</li>
+                        <li><i class="fas fa-check"></i> تسليم خلال 14 يوم</li>
+                        <li><i class="fas fa-check"></i> 3 أشهر دعم مجاني</li>
+                    </ul>
+                    <div class="product-price">
+                        <span class="price-amount" style="font-size:1.8rem">20,000 — 25,000</span>
+                        <span class="price-currency">جنيه</span>
+                    </div>
+                    <div class="product-buttons">
+                        <a href="https://wa.me/9665477705498?text=مرحباً، أريد الاستفسار عن باقة برو" class="btn btn-primary" target="_blank">ابدأ مشروعك</a>
+                    </div>
+                </div>
+
+                <!-- ENTERPRISE -->
+                <div class="product-card fade-in">
+                    <div class="product-badge">حلول مخصصة</div>
+                    <div class="product-icon"><i class="fas fa-crown"></i></div>
+                    <h3 class="product-name">إنتربرايز</h3>
+                    <p class="product-tagline">نظام كامل على قد الطموح</p>
+                    <p class="product-description">للمشاريع الكبيرة التي تحتاج تطوير كامل — تطبيق، نظام، أو منصة متكاملة.</p>
+                    <ul class="product-features">
+                        <li><i class="fas fa-check"></i> تحليل متطلبات كامل</li>
+                        <li><i class="fas fa-check"></i> تصميم UI/UX مخصص</li>
+                        <li><i class="fas fa-check"></i> تطوير فرونت + باك إند</li>
+                        <li><i class="fas fa-check"></i> API وتكاملات خارجية</li>
+                        <li><i class="fas fa-check"></i> اختبار وضمان جودة</li>
+                        <li><i class="fas fa-check"></i> جلسة استشارية مجانية</li>
+                        <li><i class="fas fa-check"></i> دعم أولوية 6 أشهر</li>
+                    </ul>
+                    <div class="product-price">
+                        <span class="price-amount" style="font-size:2rem">تواصل معنا</span>
+                    </div>
+                    <div class="product-buttons">
+                        <a href="https://wa.me/9665477705498?text=مرحباً، أريد الاستفسار عن باقة إنتربرايز" class="btn btn-primary" target="_blank">احجز استشارة مجانية</a>
+                    </div>
+                </div>
             </div>
-            <div class="team-grid"></div>
         </div>
     </section>
 
     <!-- PROCESS -->
-    <section class="process section" id="section-process">
+    <section class="process section" id="process">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title fade-in"></h2>
-                <p class="section-subtitle fade-in"></p>
+                <h2 class="section-title fade-in">كيف بنشتغل؟</h2>
+                <p class="section-subtitle fade-in">4 خطوات من الفكرة للموقع الحي</p>
             </div>
-            <div class="process-steps"></div>
-        </div>
-    </section>
-
-    <!-- CASE STUDIES -->
-    <section class="case-studies section" id="section-casestudies">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title fade-in"></h2>
-                <p class="section-subtitle fade-in"></p>
+            <div class="process-steps">
+                <div class="process-step fade-in">
+                    <div class="process-icon-wrapper"><i class="fas fa-comments process-icon"></i></div>
+                    <h3 class="process-title">نتكلم ونفهم</h3>
+                    <ul class="process-items"><li>جلسة استشارية مجانية</li><li>نفهم طبيعة مشروعك</li><li>نحدد احتياجاتك بالضبط</li></ul>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="process-icon-wrapper"><i class="fas fa-pencil-ruler process-icon"></i></div>
+                    <h3 class="process-title">نصمم ونوافقك</h3>
+                    <ul class="process-items"><li>تصميم أولي خلال 48 ساعة</li><li>تعديلات غير محدودة</li><li>موافقتك = نبدأ التطوير</li></ul>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="process-icon-wrapper"><i class="fas fa-code process-icon"></i></div>
+                    <h3 class="process-title">نبرمج ونسلم</h3>
+                    <ul class="process-items"><li>تطوير سريع وأكواد نظيفة</li><li>اختبار على كل الأجهزة</li><li>تسليم في الموعد المحدد</li></ul>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="process-icon-wrapper"><i class="fas fa-rocket process-icon"></i></div>
+                    <h3 class="process-title">نطلق ونتابع</h3>
+                    <ul class="process-items"><li>رفع الموقع على الإنترنت</li><li>تدريبك على الإدارة</li><li>دعم مستمر بعد الإطلاق</li></ul>
+                </div>
             </div>
-            <div class="case-studies-container"></div>
-        </div>
-    </section>
-
-    <!-- CLIENTS -->
-    <section class="clients section" id="section-clients">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title fade-in"></h2>
-                <p class="section-subtitle fade-in"></p>
-            </div>
-            <div class="clients-grid"></div>
         </div>
     </section>
 
     <!-- TESTIMONIALS -->
-    <section class="testimonials section" id="section-testimonials">
+    <section class="testimonials section" id="testimonials">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title fade-in"></h2>
-                <p class="section-subtitle fade-in"></p>
+                <h2 class="section-title fade-in">عملاؤنا بيتكلموا</h2>
+                <p class="section-subtitle fade-in">نتائج حقيقية من مشاريع حقيقية</p>
             </div>
-            <div class="testimonials-grid"></div>
+            <div class="testimonials-grid">
+                <div class="testimonial fade-in">
+                    <p class="testimonial-text">"سلموا الموقع في أقل من أسبوع وكان بالضبط اللي تخيلته. الزبائن بدأوا يتواصلوا معانا من الموقع من أول يوم."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">أ.م</div>
+                        <div class="author-info"><h4>أحمد — كافيه أليكس</h4><p>سوهاج، مصر</p></div>
+                    </div>
+                </div>
+                <div class="testimonial fade-in">
+                    <p class="testimonial-text">"كنت خايف التصميم يطلع زي باقي المواقع المتشابهة. طلع مختلف تماماً وعكس روح العيادة بالظبط. شكراً PioneersX."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">د.س</div>
+                        <div class="author-info"><h4>د. سارة — عيادة أسنان</h4><p>القاهرة، مصر</p></div>
+                    </div>
+                </div>
+                <div class="testimonial fade-in">
+                    <p class="testimonial-text">"عملوا لنا نظام حجوزات متكامل وربطوه بالموقع. الموضوع أتأتمن خلاص ووفرنا ساعات شغل يومياً."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">م.ع</div>
+                        <div class="author-info"><h4>محمد — شركة خدمات</h4><p>الرياض، السعودية</p></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- CTA -->
-    <section class="cta section" id="section-cta">
+    <section class="cta section">
         <div class="container">
-            <h2 class="cta-title fade-in"></h2>
-            <p class="cta-subtitle fade-in"></p>
-            <div class="hero-buttons fade-in"></div>
+            <h2 class="fade-in">مشروعك يستاهل موقع يعبر عنه</h2>
+            <p class="fade-in">تواصل معنا النهارده واحصل على استشارة مجانية — بدون أي التزام</p>
+            <div class="hero-buttons fade-in">
+                <a href="https://wa.me/9665477705498?text=مرحباً، أريد استشارة مجانية لبناء موقع" class="btn btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> ابدأ مشروعك الآن</a>
+                <a href="#products" class="btn btn-secondary">شوف الأسعار</a>
+            </div>
         </div>
     </section>
 
     <!-- CONTACT -->
-    <section class="contact section" id="section-contact">
+    <section class="contact section" id="contact">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title fade-in"></h2>
-                <p class="section-subtitle fade-in"></p>
+                <h2 class="section-title fade-in">تواصل معنا</h2>
+                <p class="section-subtitle fade-in">استشارة مجانية — بدون التزام — رد خلال ساعتين</p>
             </div>
             <div class="contact-container">
                 <div class="contact-info fade-in">
                     <h3>معلومات التواصل</h3>
                     <div class="contact-item">
                         <div class="contact-icon"><i class="fas fa-phone"></i></div>
-                        <div class="contact-details"><h4>الهاتف</h4><p dir="ltr" class="contact-phone"></p></div>
+                        <div class="contact-details"><h4>الهاتف</h4><p dir="ltr">+966 54 770 5498</p></div>
                     </div>
                     <div class="contact-item">
                         <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-                        <div class="contact-details"><h4>البريد الإلكتروني</h4><p dir="ltr"><a class="contact-email" href="#"></a></p></div>
+                        <div class="contact-details"><h4>البريد الإلكتروني</h4><p><a href="mailto:info@pioneersx.store" style="color:var(--text-gray)">info@pioneersx.store</a></p></div>
                     </div>
                     <div class="contact-item">
                         <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
-                        <div class="contact-details"><h4>واتساب</h4><p dir="ltr"><a class="contact-wa" href="#"></a></p></div>
+                        <div class="contact-details"><h4>واتساب</h4><p dir="ltr"><a href="https://wa.me/9665477705498" style="color:var(--text-gray)" target="_blank">+966 54 770 5498</a></p></div>
                     </div>
                     <div class="contact-item">
                         <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
-                        <div class="contact-details"><h4>العنوان</h4><p class="contact-city"></p></div>
+                        <div class="contact-details"><h4>نعمل مع</h4><p>مصر، السعودية، والخليج — عن بُعد</p></div>
                     </div>
                     <div class="contact-item">
                         <div class="contact-icon"><i class="fas fa-clock"></i></div>
-                        <div class="contact-details"><h4>ساعات العمل</h4><p class="contact-hours"></p></div>
+                        <div class="contact-details"><h4>ساعات العمل</h4><p>السبت — الخميس: 10:00 ص — 10:00 م</p></div>
                     </div>
                 </div>
                 <form class="contact-form fade-in" id="contactForm">
-                    <h3 class="form-title" style="margin-bottom:30px;color:var(--text-white);"></h3>
+                    <h3 style="margin-bottom:30px;color:var(--text-white)">أرسل تفاصيل مشروعك</h3>
                     <div class="form-group"><label>الاسم الكامل *</label><input type="text" name="name" required></div>
                     <div class="form-group"><label>البريد الإلكتروني *</label><input type="email" name="email" required></div>
                     <div class="form-group"><label>رقم الهاتف *</label><input type="tel" name="phone" required></div>
-                    <div class="form-group"><label>نوع الاستفسار</label>
-                        <select id="service" name="service" style="width:100%;padding:15px;background:var(--darker-bg);border:1px solid var(--border-color);border-radius:8px;color:var(--text-white);font-size:1rem;"></select>
+                    <div class="form-group"><label>الباقة المطلوبة</label>
+                        <select name="package" style="width:100%;padding:15px;background:var(--darker-bg);border:1px solid var(--border-color);border-radius:8px;color:var(--text-white);font-size:1rem;font-family:inherit">
+                            <option value="">اختر الباقة أو نوع الطلب</option>
+                            <option value="starter">باقة ستارتر (15-18K جنيه)</option>
+                            <option value="pro">باقة برو (20-25K جنيه)</option>
+                            <option value="enterprise">إنتربرايز — مشروع كبير</option>
+                            <option value="consult">استشارة مجانية بس</option>
+                        </select>
                     </div>
-                    <div class="form-group"><label>رسالتك *</label><textarea name="message" required></textarea></div>
-                    <button type="submit" class="btn btn-primary" style="width:100%;"></button>
+                    <div class="form-group"><label>رسالتك *</label><textarea name="message" required placeholder="اوصفلنا مشروعك — نوعه، احتياجاتك، وأي تفاصيل تساعدنا نقدم لك أفضل اقتراح..."></textarea></div>
+                    <button type="submit" class="btn btn-primary" style="width:100%">ابعت الطلب</button>
                 </form>
             </div>
         </div>
     </section>
 
     <!-- WHATSAPP FLOAT -->
-    <a href="#" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://wa.me/9665477705498" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
     <!-- FOOTER -->
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <h3 class="footer-brand-name"></h3>
-                <p class="footer-about"></p>
+                <h3>عن Pioneers<span style="color:var(--primary-red)">X</span></h3>
+                <p>وكالة ويب متخصصة في بناء مواقع احترافية للمشاريع الصغيرة والمتوسطة. نبني مواقع تبيع — لا مواقع تُعرض فقط.</p>
                 <div class="social-links">
-                    <a id="footer-twitter"   href="#" target="_blank" aria-label="تويتر"><i class="fab fa-twitter"></i></a>
-                    <a id="footer-linkedin"  href="#" target="_blank" aria-label="لينكدين"><i class="fab fa-linkedin"></i></a>
-                    <a id="footer-instagram" href="#" target="_blank" aria-label="إنستغرام"><i class="fab fa-instagram"></i></a>
-                    <a id="footer-youtube"   href="#" target="_blank" aria-label="يوتيوب"><i class="fab fa-youtube"></i></a>
-                    <a id="footer-tiktok"    href="#" target="_blank" aria-label="تيك توك"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://x.com/pioneersxai" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.linkedin.com/company/pioneersx" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/pioneersxai/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/@pioneersxai" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.tiktok.com/@pioneersxai" target="_blank"><i class="fab fa-tiktok"></i></a>
                 </div>
             </div>
-            <div class="footer-dynamic-cols"></div>
+            <div class="footer-section">
+                <h3>خدماتنا</h3>
+                <ul>
+                    <li><a href="#services">مواقع الأعمال المحلية</a></li>
+                    <li><a href="#services">مواقع الشركات</a></li>
+                    <li><a href="#services">أنظمة ولوحات تحكم</a></li>
+                    <li><a href="#products">الباقات والأسعار</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>روابط سريعة</h3>
+                <ul>
+                    <li><a href="#home">الرئيسية</a></li>
+                    <li><a href="#features">لماذا نحن</a></li>
+                    <li><a href="#process">كيف نعمل</a></li>
+                    <li><a href="#contact">تواصل معنا</a></li>
+                </ul>
+            </div>
             <div class="footer-section">
                 <h3>تواصل معنا</h3>
-                <p><i class="fas fa-envelope"></i> <a class="footer-contact-email" href="#"></a></p>
-                <p><i class="fas fa-phone"></i> <span class="footer-contact-phone"></span></p>
-                <p><i class="fab fa-whatsapp"></i> <a class="footer-contact-wa" href="#"></a></p>
-                <p><i class="fas fa-map-marker-alt"></i> <span class="footer-contact-city"></span></p>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:info@pioneersx.store" style="color:var(--text-gray)">info@pioneersx.store</a></p>
+                <p><i class="fas fa-phone"></i> <span dir="ltr">+966 54 770 5498</span></p>
+                <p><i class="fab fa-whatsapp"></i> <span dir="ltr">+966 54 770 5498</span></p>
+                <p><i class="fas fa-map-marker-alt"></i> مصر والسعودية — عن بُعد</p>
             </div>
         </div>
         <div class="footer-bottom">
-            <p class="footer-copyright"></p>
+            <p>&copy; 2026 PioneersX. جميع الحقوق محفوظة.</p>
         </div>
     </footer>
 
     <div class="scroll-top" id="scrollTop"><i class="fas fa-arrow-up"></i></div>
 
-    <script src="config.js"></script>
     <script src="js/main.js"></script>
     <script src="js/animations.js"></script>
     <script src="js/cursor.js"></script>
