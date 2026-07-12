@@ -1518,6 +1518,41 @@ color: #0ea5e9;
 font-weight: 900;
 }
 
+/* Nile Dental — pulsing blue tooth badge above the wordmark,
+   gives the placeholder logo some life instead of sitting flat */
+.nile-logo-badge {
+width: 62px;
+height: 62px;
+border-radius: 50%;
+background: linear-gradient(135deg, #0ea5e9 0%, #0c4a6e 100%);
+display: flex;
+align-items: center;
+justify-content: center;
+margin-bottom: 12px;
+box-shadow: 0 8px 20px rgba(14, 165, 233, 0.35);
+animation: nileToothPulse 2.6s ease-in-out infinite;
+}
+
+.nile-logo-badge i {
+font-size: 1.7rem;
+color: #ffffff;
+}
+
+@keyframes nileToothPulse {
+0%, 100% {
+transform: scale(1);
+box-shadow: 0 8px 20px rgba(14, 165, 233, 0.35);
+}
+50% {
+transform: scale(1.08);
+box-shadow: 0 10px 28px rgba(14, 165, 233, 0.55);
+}
+}
+
+.brand-nile.project-logo-thumb {
+flex-direction: column;
+}
+
 .project-live-badge {
 position: absolute;
 top: 16px;
