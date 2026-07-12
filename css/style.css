@@ -1446,8 +1446,8 @@ font-size: 2.2rem;
 color: var(--primary-red);
 }
 
-/* Jamila Clinics thumbnail — full logo on beige background */
-.project-thumb.jamila-thumb {
+/* Logo thumbnail — full, uncropped brand logo on a neutral beige tile */
+.project-thumb.project-logo-thumb {
 background: linear-gradient(135deg, #f5ead0 0%, #e8d6a8 100%);
 padding: 20px;
 }
