@@ -1446,10 +1446,35 @@ font-size: 2.2rem;
 color: var(--primary-red);
 }
 
-/* Logo thumbnail — full, uncropped brand logo on a neutral beige tile */
+/* Logo thumbnail — full, uncropped brand logo.
+   Each brand gets its OWN background, matching that client's
+   actual logo/site colors instead of one shared tile. */
 .project-thumb.project-logo-thumb {
-background: linear-gradient(135deg, #f5ead0 0%, #e8d6a8 100%);
 padding: 20px;
+}
+
+.project-thumb.brand-jamila {
+background: linear-gradient(135deg, #f5ead0 0%, #e8d6a8 100%);
+}
+
+.project-thumb.brand-ritaj {
+background: linear-gradient(135deg, #1f8a45 0%, #14622f 100%);
+}
+
+.project-thumb.brand-nile {
+background: linear-gradient(135deg, #f2f5f8 0%, #dbe6ee 100%);
+}
+
+.project-thumb.brand-alexcafe {
+background: linear-gradient(135deg, #f5e8c8 0%, #ecd9ad 100%);
+}
+
+.project-thumb.brand-checkpoint {
+background: linear-gradient(135deg, #1c2f52 0%, #0e1a30 100%);
+}
+
+.project-thumb.brand-clash {
+background: #ffffff;
 }
 
 .project-logo-img {
