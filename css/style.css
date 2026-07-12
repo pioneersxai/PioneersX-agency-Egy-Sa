@@ -1457,20 +1457,27 @@ padding: 20px;
 background: linear-gradient(135deg, #f5ead0 0%, #e8d6a8 100%);
 }
 
+/* Ritaj's own brand green (from their site's primaryColor) — flat,
+   matches their logo's solid green canvas exactly, no gradient seam */
 .project-thumb.brand-ritaj {
-background: linear-gradient(135deg, #1f8a45 0%, #14622f 100%);
+background: #1a7a3c;
 }
 
+/* Nile Dental has no logo file yet — styled text-wordmark instead,
+   colors pulled straight from their live site's nav (#0c4a6e / #0ea5e9) */
 .project-thumb.brand-nile {
-background: linear-gradient(135deg, #f2f5f8 0%, #dbe6ee 100%);
+background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
 }
 
 .project-thumb.brand-alexcafe {
-background: linear-gradient(135deg, #f5e8c8 0%, #ecd9ad 100%);
+background: #f6ecd4;
 }
 
+/* CheckPoint's logo photo sits on a light backdrop, not navy —
+   matching that instead of guessing from the badge's own color
+   removes the "box inside a box" seam */
 .project-thumb.brand-checkpoint {
-background: linear-gradient(135deg, #1c2f52 0%, #0e1a30 100%);
+background: #eef0f3;
 }
 
 .project-thumb.brand-clash {
@@ -1478,8 +1485,8 @@ background: #ffffff;
 }
 
 .project-logo-img {
-max-width: 62%;
-max-height: 68%;
+max-width: 72%;
+max-height: 76%;
 width: auto;
 height: auto;
 object-fit: contain;
@@ -1488,6 +1495,27 @@ transition: transform 0.3s;
 
 .project-card:hover .project-logo-img {
 transform: scale(1.06);
+}
+
+/* Text-based fallback logo (used when a brand has no logo file yet) */
+.project-text-logo {
+display: flex;
+align-items: center;
+gap: 10px;
+font-family: 'Cairo', sans-serif;
+font-size: 1.5rem;
+font-weight: 700;
+color: #0c4a6e;
+letter-spacing: 0.3px;
+}
+
+.project-text-logo i {
+font-size: 1.7rem;
+color: #0ea5e9;
+}
+
+.project-text-logo b {
+font-weight: 900;
 }
 
 .project-live-badge {
